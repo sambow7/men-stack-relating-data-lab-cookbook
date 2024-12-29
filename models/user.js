@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  panrty: [ foodSchema ],
+  panrty: [foodSchema],
 });
 
 const foodSchema = new mongoose.Schema({

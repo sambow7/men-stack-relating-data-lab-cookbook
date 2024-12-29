@@ -1,9 +1,8 @@
-const express = require('espress');
+const express = require('express');
 const router = express.Router();
 
-const User = ('../models/user.js');
+const User = require('../models/user.js');
 
-// ROUTER LOGIC HERE (later)
+// router logic will go here - will be built later on in the lab
 
-module.exports = router; 
-
+module.exports = router;
