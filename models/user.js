@@ -9,7 +9,15 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  panrty: [ foodSchema ],
 });
+
+const foodSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+})
 
 const User = mongoose.model('User', userSchema);
 
