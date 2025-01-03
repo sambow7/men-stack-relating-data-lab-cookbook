@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js');
 
+// app.get('/', (req, res) => {
+//   res.render('index.ejs', {
+//     user: req.session.user,
+//   });
+// });
+
 //Index
 router.get('/users/:userId/foods', async (req, res) => {
   res.render('foods/index.ejs');
@@ -9,11 +15,13 @@ router.get('/users/:userId/foods', async (req, res) => {
 
 //New
 router.get('/users/:userId/foods/new', async (req, res) => {
-  res.render('foods/new.ejs');
+
+  res.render('/views/foods/new.ejs');
 });
 
 //Create
 router.post('/users/:userId/foods', async (req, res) => {
+
 });
 
 //Show
