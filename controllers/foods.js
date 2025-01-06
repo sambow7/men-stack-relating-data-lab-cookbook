@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js');
 
+
 router.get('/', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -15,19 +16,35 @@ router.get('/', async (req, res) => {
 });
 
 // GET Index
-router.get('/foods', async (req, res) => {
-  const currentUser = await User.findById(req.session.user._id);
-  res.render('foods/index.ejs'); { user: currentUser };
+router.get('/users/:userId/foods', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    if (!user) {
+      return res.redirect('/'); // Redirect home if user is not found
+    }
+    res.render('foods/index.ejs', { user });
+  } catch (err) {
+    console.error(err);
+    res.redirect('/');
+  }
 });
 
 // GET New
-router.get('/new', async (req, res) => {
-  const currentUser = await User.findById(req.session.user._id);
-  res.render('foods/new.ejs'); { user: currentUser };
+router.get('/users/:userId/foods/new', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    if (!user) {
+      return res.redirect('/'); // Redirect home if user is not found
+    }
+    res.render('foods/new.ejs', { user });
+  } catch (err) {
+    console.error(err);
+    res.redirect('/');
+  }
 });
 
 // POST Create
-router.post('/:userId/foods', async (req, res) => {
+router.post('/users/:userId/foods', async (req, res) => {
   const currentUser = await User.findById(req.session.user._id);
   currentUser.pantry.push({
     name: req.body.name,
@@ -40,27 +57,6 @@ router.post('/:userId/foods', async (req, res) => {
   res.redirect('/');
 });
 
-//Show
-router.get('/:userId/foods/:itemId', async (req, res) => {
-
-});
-
-//Edit
-router.get('/:userId/foods/:itemId/edit', async (req, res) => {
-
-});
-
-//Update
-router.put('/:userId/foods/:itemId', async (req, res) => {
-
-});
-
-//Delete
-router.delete('/:userId/foods/:itemId', async (req, res) => {
-  try {
-    const currentUser = await User.findById(req.session.user._id);
-    curr
-});
 
 
 
