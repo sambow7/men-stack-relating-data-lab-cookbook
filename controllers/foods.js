@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET Index
-router.get('/users/:userId/foods', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const user = await User.findById(req.params.userId);
     if (!user) {
@@ -30,7 +30,7 @@ router.get('/users/:userId/foods', async (req, res) => {
 });
 
 // GET New
-router.get('/users/:userId/foods/new', async (req, res) => {
+router.get('/foods/new', async (req, res) => {
   try {
     const user = await User.findById(req.params.userId);
     if (!user) {
@@ -44,7 +44,7 @@ router.get('/users/:userId/foods/new', async (req, res) => {
 });
 
 // POST Create
-router.post('/users/:userId/foods', async (req, res) => {
+router.post('/', async (req, res) => {
   const currentUser = await User.findById(req.session.user._id);
   currentUser.pantry.push({
     name: req.body.name,
@@ -56,6 +56,18 @@ router.post('/users/:userId/foods', async (req, res) => {
   console.log(err);
   res.redirect('/');
 });
+
+// GET Show
+//‘/:itemId’
+
+// GET Edit
+//‘/:itemId/edit’
+
+// PUT Update
+//‘/:itemId’
+
+// DELETE Destroy
+//‘/:itemId’
 
 
 
