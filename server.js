@@ -39,6 +39,8 @@ app.use(
 
 app.set('view engine', 'ejs');
 
+app.use(passUserToView);
+
 app.get('/', (req, res) => {
   if (req.session.user) {
     res.redirect(`/users/${req.session.user._id}/foods`);
@@ -48,7 +50,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.use(passUserToView);
+
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/foods', foodsController);

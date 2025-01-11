@@ -16,7 +16,7 @@
    
     <div class="container">
       <ul class="collection">
-        <% pantry.forEach(food => { %>
+        <% pantry.forEach((food) => { %>
           <li class="collection-item">
             <a href="/users/<%= user._id %>/foods/<%= food._id %>"> <%= food.name %></a>
           </li>
