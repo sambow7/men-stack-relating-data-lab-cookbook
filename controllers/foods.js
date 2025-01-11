@@ -4,8 +4,8 @@ const User = require('../models/user.js');
 
 // GET Index
 router.get('/', async  (req, res) => {
+  const userId = req.session.user._id
   try {
-      const userId = req.session.user._id
       const user = await User.findById(userId).select('pantry')
       console.log(user, 'user')
       res.render('foods/index.ejs', {pantry:user.pantry, id: userId });
