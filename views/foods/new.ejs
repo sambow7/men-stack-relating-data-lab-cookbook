@@ -15,14 +15,10 @@
 
       <label for="description">Description:</label>
       <input type="text" name="description" id="description" required />
-
-      <label for="quantity">Quantity:</label>
-      <input type="number" name="quantity" id="quantity" required />
       
       <button type="submit">Create</button>
 
-      <a href="/foods">Cancel</a>
-
     </form>
+    <a href="/users/<%= user._id %>/foods">Back to Foods List</a>
   </body>
 </html>
