@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js');
 
-
+// GET Index
 router.get('/', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -15,32 +15,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET Index
-router.get('/', async (req, res) => {
-  try {
-    const user = await User.findById(req.params.userId);
-    if (!user) {
-      return res.redirect('/'); // Redirect home if user is not found
-    }
-    res.render('foods/index.ejs', { user });
-  } catch (err) {
-    console.error(err);
-    res.redirect('/');
-  }
-});
-
 // GET New
-router.get('/foods/new', async (req, res) => {
-  try {
-    const user = await User.findById(req.params.userId);
-    if (!user) {
-      return res.redirect('/'); // Redirect home if user is not found
-    }
-    res.render('foods/new.ejs', { user });
-  } catch (err) {
-    console.error(err);
-    res.redirect('/');
-  }
+router.get('/new', async (req, res) => {
+    res.render('foods/new.ejs');
 });
 
 // POST Create
@@ -52,19 +29,35 @@ router.post('/', async (req, res) => {
     quantity: req.body.quantity,
   });
   await currentUser.save();
-  res.redirect(`/users/${req.session.user._id}/foods`);
+  res.redirect(`/users/${currentUser._id}/foods`);
   console.log(err);
   res.redirect('/');
 });
 
-// GET Show
-//‘/:itemId’
 
-// GET Edit
-//‘/:itemId/edit’
+// GET Show
+router.get('/:itemId', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    const food = currentUser.pantry.id(req.params.itemId);
+    res.render('foods/show.ejs', { food });
+  } catch (err) {
+    console.log(err);
+    res.redirect('/');
+  }
+});
+
+
+
+// GET Edit 
+router.get('/:itemId/edit', async (req, res) => {
+  res.render('foods/edit.ejs');
+});
 
 // PUT Update
-//‘/:itemId’
+router.put('/:itemId', async (req, res) => {
+  res.redirect(`/users/${req.session.user._id}/foods`);
+});
 
 // DELETE Destroy
 //‘/:itemId’
