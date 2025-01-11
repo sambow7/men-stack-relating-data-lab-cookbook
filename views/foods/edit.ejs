@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Food Item</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Food Item</title>
 </head>
+
 <body>
-    
-    <h1>Edit Pantry Item: <%= foodItem.name %></h1>
 
-    <form action="/users/<%= user._id %>/foods/<%= foodItem._id %>?_method=PUT" method="POST">
-        <label for="name">Food Name:</label>
-        <input type="text" id="name" name="name" value="<%= foodItem.name %>" required />
+  <h1>Edit Pantry Item: <%= foodItem.name %>
+  </h1>
 
-        <label for="description">Description:</label>
-        <textarea id="description" name="description"><%= foodItem.description %></textarea>
+  <form action="/users/<%= user._id %>/foods/<%= foodItem._id %>?_method=PUT" method="POST">
+    <label for="name">Food Name:</label>
+    <input type="text" id="name" name="name" value="<%= foodItem.name %>" required />
 
-        <button type="submit">Update Item</button>
-    </form>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"><%= foodItem.description %></textarea>
 
-    <a href="/users/<%= user._id %>/foods">Back to Pantry</a>
+    <button type="submit">Update Item</button>
+  </form>
+
+  <a href="/users/<%= user._id %>/foods">Back to Pantry</a>
 </body>
+
 </html>
