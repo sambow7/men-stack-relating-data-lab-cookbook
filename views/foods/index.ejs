@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/partials.css">
-    <title>My Pantry</title>
+    <title><%= user.username %> Pantry</title>
   </head>
   <body class="index-body">
     <%- include('../partials/_navbar.ejs') %>
     <main class="content">
       <header class="page-header">
-        <h1>Your Pantry</h1>
-        <a class="new-food-link" href="/users/<%= id %>/foods/new">Create New Food</a>
+        <h1>Welcome, <%= user.username %></h1>
+        <a class="btn" href="/users/<%= id %>/foods/new">Create New Food</a>
       </header>
       <section class="food-section">
         <h2>List of Food</h2>

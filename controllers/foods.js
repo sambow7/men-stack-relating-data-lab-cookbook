@@ -16,11 +16,9 @@ router.get('/', async (req, res) => {
 
 });
 
-
 // GET New
 router.get('/new', async (req, res) => {
   try {
-
     res.render('foods/new');// Render the form with the ID
   } catch (error) {
     console.error('Error rendering new food form:', error);
@@ -43,7 +41,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-
 // DELETE Destroy
 router.delete('/:itemId', async (req, res) => {
   try {
@@ -63,8 +60,6 @@ router.delete('/:itemId', async (req, res) => {
     res.redirect('/');
   }
 });
-
-
 
 // GET Show
 router.get('/:itemId', async (req, res) => {

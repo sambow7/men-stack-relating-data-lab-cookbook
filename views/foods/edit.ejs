@@ -11,10 +11,10 @@
 </head>
 
 <body>
-
-  <h1>Edit Pantry Item: <%= foodItem.name %>
-  </h1>
-
+  <header class="page-header">
+  <h1>Edit Pantry Item: <%= foodItem.name %></h1>
+  <a class="btn" href="/users/<%= user._id %>/foods">Back to Pantry</a>
+  </header>
   <form action="/users/<%= user._id %>/foods/<%= foodItem._id %>?_method=PUT" method="POST">
     <label for="name">Food Name:</label>
     <input type="text" id="name" name="name" value="<%= foodItem.name %>" required />
@@ -22,10 +22,8 @@
     <label for="description">Description:</label>
     <textarea id="description" name="description"><%= foodItem.description %></textarea>
 
-    <button type="submit">Update Item</button>
+    <button class="btn" type="submit">Update Item</button>
   </form>
-
-  <a href="/users/<%= user._id %>/foods">Back to Pantry</a>
 </body>
 
 </html>

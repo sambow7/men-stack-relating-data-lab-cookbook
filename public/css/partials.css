@@ -1,5 +1,8 @@
 .navbar {
-  background-color: rgba(20, 199, 98, 0.8); /* Semi-transparent green */
+  background-color: #f47600;
+  background-image: url('images/plaid.jpeg');
+  background-position: center;
+  background-size: 10em 10em;
   border-bottom: 1px solid rgba(227, 231, 234, 0.6); /* Subtle border for separation */
   border-radius: 0;
   margin-bottom: 0;
@@ -9,7 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2em; /* Slightly smaller font for a minimal look */
+  font-size: 1.2em;
   position: fixed; /* Keeps the navbar at the top while scrolling */
   top: 0;
   width: 100%;
@@ -18,7 +21,7 @@
 }
 
 #nav-header {
-  color: #031c14; /* Dark green for contrast */
+  color: #f47600; /* Dark green for contrast */
   font-size: 1.5em;
   font-weight: bold; /* Makes the header text bold */
   margin: 0;
@@ -27,7 +30,7 @@
 .auth-link {
   text-decoration: none;
   margin: 0 15px;
-  color: #0b0f0c;
+  color: #f47600;
   font-weight: bold; /* Boldens link text */
   transition: color 0.3s ease-in-out; /* Smooth color transition on hover */
   padding: 0.5em 1em; /* Increases padding for a slimmer look */
