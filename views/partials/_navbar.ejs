@@ -3,18 +3,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-
-<nav>
-  <div class="navbar">
+<nav class="navbar">
+  <div class="navbar-left">
     <a id="nav-header" href="/">Home</a>
     <% if(user) { %>
-    <a id="nav-header" href="/users/<%=user._id%>/foods">View my Pantry</a>
-    <a id="nav-header" href="/auth/sign-out">Sign Out</a>
+      <a id="nav-header" href="/users/<%=user._id%>/foods">View my Pantry</a>
+    <% } %>
   </div>
+  <div class="navbar-right">
+    <% if(user) { %>
+      <a class="auth-link" href="/auth/sign-out">Sign Out</a>
     <% } else { %>
-  <div class="navbar">
-    <a class="auth-link" href="/auth/sign-in">Sign In</a>
-    <a class="auth-link" href="/auth/sign-up">Sign Up</a>
+      <a class="auth-link" href="/auth/sign-in">Sign In</a>
+      <a class="auth-link" href="/auth/sign-up">Sign Up</a>
+    <% } %>
   </div>
-  <% } %>
 </nav>

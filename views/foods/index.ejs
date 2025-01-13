@@ -5,23 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/partials.css">
-    
     <title>My Pantry</title>
   </head>
   <body class="index-body">
     <%- include('../partials/_navbar.ejs') %>
-    <h1> Your Pantry </h1>
-    <a class="new-food-link" href="/users/<%= id %>/foods/new">Create New Food</a>
-    <h1> List of Food </h1>
-   
-    <div class="container">
-      <ul class="food-list">
-        <% pantry.forEach((food) => { %>
-          <li class="food-item">
-            <a href="/users/<%= user._id %>/foods/<%= food._id %>"> <%= food.name %></a>
-          </li>
-          <% })%>
-      </ul>
-    </div>
+    <main class="content">
+      <header class="page-header">
+        <h1>Your Pantry</h1>
+        <a class="new-food-link" href="/users/<%= id %>/foods/new">Create New Food</a>
+      </header>
+      <section class="food-section">
+        <h2>List of Food</h2>
+        <div class="container">
+          <ul class="food-list">
+            <% pantry.forEach((food) => { %>
+              <li class="food-item">
+                <a href="/users/<%= id %>/foods/<%= food._id %>"> <%= food.name %> </a>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

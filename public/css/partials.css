@@ -1,26 +1,46 @@
 .navbar {
-    background-color: #14c762;
-    border-bottom: 1px solid #e3e7ea;
-    border-radius: 0;
-    margin-bottom: 0;
-    min-height: 50px;
-    padding: 1em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.5em;
+  background-color: rgba(20, 199, 98, 0.8); /* Semi-transparent green */
+  border-bottom: 1px solid rgba(227, 231, 234, 0.6); /* Subtle border for separation */
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: 50px;
+  padding: 0.5em 1em; /* Reduced padding for a slimmer look */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2em; /* Slightly smaller font for a minimal look */
+  position: fixed; /* Keeps the navbar at the top while scrolling */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the navbar stays above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for depth */
 }
 
 #nav-header {
-  color: #031c14;
-  size: 1em !important;
+  color: #031c14; /* Dark green for contrast */
+  font-size: 1.5em;
+  font-weight: bold; /* Makes the header text bold */
   margin: 0;
 }
 
-.authlink {
+.auth-link {
   text-decoration: none;
   margin: 0 15px;
-  color: black;
+  color: #0b0f0c;
+  font-weight: bold; /* Boldens link text */
+  transition: color 0.3s ease-in-out; /* Smooth color transition on hover */
+  padding: 0.5em 1em; /* Increases padding for a slimmer look */
+  border-radius: 5px; /* Adds rounded corners to the links */
+  background-color: transparent; /* Removes background color on hover */
+  border: none; /* Removes border on hover */
+}
 
+.auth-link:hover {
+  color: #fff; /* Changes link color to white on hover */
+}
+
+
+body {
+  padding-top: 60px; /* Prevents content from overlapping the fixed navbar */
 }
