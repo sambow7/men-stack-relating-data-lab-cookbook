@@ -1,16 +1,20 @@
 <link rel="stylesheet" href="/css/partials.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
 
 <nav>
   <div class="navbar">
-    <a href="/">Home</a>
+    <a id="nav-header" href="/">Home</a>
     <% if(user) { %>
-    <a href="/users/<%=user._id%>/foods">View my Pantry</a>
-    <a href="/auth/sign-out">Sign Out</a>
+    <a id="nav-header" href="/users/<%=user._id%>/foods">View my Pantry</a>
+    <a id="nav-header" href="/auth/sign-out">Sign Out</a>
   </div>
     <% } else { %>
   <div class="navbar">
-    <a href="/auth/sign-in">Sign In</a>
-    <a href="/auth/sign-up">Sign Up</a>
+    <a class="auth-link" href="/auth/sign-in">Sign In</a>
+    <a class="auth-link" href="/auth/sign-up">Sign Up</a>
   </div>
   <% } %>
 </nav>

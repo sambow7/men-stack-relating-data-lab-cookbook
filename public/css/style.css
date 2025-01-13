@@ -4,13 +4,35 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background-color: #9ac2ef;
+  background-color: #004d40;
+  background-image: url('images/image.jpeg');
 }
 
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
+  justify-content: space-evenly;
+  width: 20em;
+  height: 50%;
+  background-color: #053502;
+  padding: 30px 40px 20px 40px;
+  border-radius: 20px;
+  color: #0b0f0c;
+  font-weight: bold;
+}
+
+h1 {
+  color: #97d6c1;
+  font-size: 2em;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+label {
+  color: #97d6c1;
+  font-size: 1.5em;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
 }

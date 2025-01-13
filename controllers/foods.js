@@ -75,7 +75,7 @@ router.get('/:itemId', async (req, res) => {
     console.log(itemId)
     const foodItem = user.pantry.find(food => food._id.toString() === itemId)
     console.log(foodItem)
-    res.render('foods/show', { foodItem, user })
+    res.render('foods/show.ejs', { foodItem, user })
 
   } catch (error) {
     console.error(error.message)

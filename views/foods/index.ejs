@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/partials.css">
+    
     <title>My Pantry</title>
   </head>
-  <body>
+  <body class="index-body">
     <%- include('../partials/_navbar.ejs') %>
     <h1>Welcome to my Pantry</h1>
      <!--I need to have a show page, button for edit and delete-->
-    <a href="/users/<%= id %>/foods/new">Create New Food</a>
+    <a class="new-food-link" href="/users/<%= id %>/foods/new">Create New Food</a>
     <h1 class ="center-align">List of Food</h1>
    
     <div class="container">
       <ul class="collection">
         <% pantry.forEach((food) => { %>
-          <li class="collection-item">
+          <li class="food-item">
             <a href="/users/<%= user._id %>/foods/<%= food._id %>"> <%= food.name %></a>
           </li>
           <% })%>
