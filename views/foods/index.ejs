@@ -10,13 +10,12 @@
   </head>
   <body class="index-body">
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Welcome to my Pantry</h1>
-     <!--I need to have a show page, button for edit and delete-->
+    <h1> Your Pantry </h1>
     <a class="new-food-link" href="/users/<%= id %>/foods/new">Create New Food</a>
-    <h1 class ="center-align">List of Food</h1>
+    <h1> List of Food </h1>
    
     <div class="container">
-      <ul class="collection">
+      <ul class="food-list">
         <% pantry.forEach((food) => { %>
           <li class="food-item">
             <a href="/users/<%= user._id %>/foods/<%= food._id %>"> <%= food.name %></a>
