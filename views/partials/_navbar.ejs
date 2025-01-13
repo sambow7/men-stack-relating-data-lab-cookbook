@@ -1,10 +1,16 @@
+<link rel="stylesheet" href="/css/partials.css">
+
 <nav>
-  <a href="/">Home</a>
-  <% if(user) { %>
-  <a href="/users/<%=user._id%>/foods">View my Pantry</a>
-  <a href="/auth/sign-out">Sign Out</a>
-  <% } else { %>
-  <a href="/auth/sign-in">Sign In</a>
-  <a href="/auth/sign-up">Sign Up</a>
+  <div class="navbar">
+    <a href="/">Home</a>
+    <% if(user) { %>
+    <a href="/users/<%=user._id%>/foods">View my Pantry</a>
+    <a href="/auth/sign-out">Sign Out</a>
+  </div>
+    <% } else { %>
+  <div class="navbar">
+    <a href="/auth/sign-in">Sign In</a>
+    <a href="/auth/sign-up">Sign Up</a>
+  </div>
   <% } %>
 </nav>

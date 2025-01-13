@@ -1,4 +1,4 @@
-Action	/Route	  HTTP Verb
+Action	/Route	                            HTTP Verb
 
 Index	 ‘/users/:userId/foods’	              GET
 New	   ‘/users/:userId/foods/new’	          GET
