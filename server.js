@@ -8,10 +8,12 @@ const session = require('express-session');
 
 const authController = require('./controllers/auth.js');
 const foodsController = require('./controllers/foods.js');
+const usersController = require('./controllers/users.js');
+const recipesController = require('./controllers/recipes.js');
+const ingredientsController = require('./controllers/ingredients.js');
 
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
-
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -23,11 +25,10 @@ mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
-app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(
   session({
@@ -49,11 +50,13 @@ app.get('/', (req, res) => {
   }
 });
 
-
-
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/foods', foodsController);
+app.use('/users', usersController);
+app.use('/users/:userId/recipes', recipesController);
+app.use('/users/:userId/ingredients', ingredientsController);
+
 
 app.listen(port, () => {
   console.log(`🎧 PORT ${port}!`);

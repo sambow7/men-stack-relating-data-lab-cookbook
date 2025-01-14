@@ -32,4 +32,4 @@ router.delete('/:recipeId', (req, res) => {
     res.send('This is the delete route for recipes');
 });
 
-module.exports = router;
+module.exports = router, User;
