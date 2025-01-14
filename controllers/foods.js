@@ -121,4 +121,4 @@ router.get('/:itemId/edit', async (req, res) => {
   }
 });
 
-module.exports = router, User;
+module.exports = router;

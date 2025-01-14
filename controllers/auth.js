@@ -68,4 +68,4 @@ router.post('/sign-in', async (req, res) => {
   }
 });
 
-module.exports = router, User;
+module.exports = router;
